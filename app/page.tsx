@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Menu, X, ChevronDown, Shield, Users, Home, Smartphone, Star, CheckCircle, ArrowRight, Play } from 'lucide-react'
+import { Menu, X, Shield, Users, Home, Smartphone, Star, CheckCircle, ArrowRight, Play } from 'lucide-react'
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

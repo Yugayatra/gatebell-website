@@ -109,19 +109,66 @@ The project uses Inter font family, which can be changed in the Tailwind config 
 ### Content
 All text content is easily editable in the `app/page.tsx` file. Replace placeholder text with your actual content.
 
-## Deployment
+## Production Deployment
+
+### Live Website
+🌐 **GateBell is now live at:** https://gatebell-website.vercel.app
+
+### Build for Production
+```bash
+npm run build
+npm start
+```
 
 ### Vercel (Recommended)
 1. Push your code to GitHub
 2. Connect your repository to Vercel
 3. Deploy automatically
 
-### Other Platforms
-The project can be deployed to any platform that supports Next.js:
-- Netlify
-- AWS Amplify
-- DigitalOcean App Platform
-- Railway
+### Netlify
+1. Build command: `npm run build`
+2. Publish directory: `.next`
+3. Deploy settings: Node.js 18+
+
+### AWS Amplify
+1. Build settings:
+   - Build command: `npm run build`
+   - Output directory: `.next`
+2. Environment: Node.js 18+
+
+### Docker Deployment
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+### Environment Variables
+Create a `.env.local` file for production:
+```env
+NEXT_PUBLIC_SITE_URL=https://gatebell-website.vercel.app
+NEXT_PUBLIC_GA_ID=your-google-analytics-id
+```
+
+### SEO & Analytics Setup
+1. **Google Analytics:** Add your GA4 measurement ID to environment variables
+2. **Google Search Console:** Submit your sitemap at https://gatebell-website.vercel.app/sitemap.xml
+3. **Social Media:** Test Open Graph tags on Facebook, Twitter, and LinkedIn
+
+### Performance Optimization
+- ✅ SEO optimized with meta tags
+- ✅ Responsive images with Next.js Image component
+- ✅ Error pages (404, 500)
+- ✅ Sitemap and robots.txt
+- ✅ PWA manifest
+- ✅ Favicon and app icons
+- ✅ Code splitting and lazy loading
+- ✅ Optimized bundle size
 
 ## Technologies Used
 

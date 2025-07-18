@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Menu, X, Mail, Phone, MapPin, Clock, Send, Building, MessageSquare, User, Mail as MailIcon } from 'lucide-react'
+import { Menu, X, Mail, Phone, MapPin, Clock, Send, Building, MessageSquare, User } from 'lucide-react'
 
 export default function ContactPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -147,7 +147,7 @@ export default function ContactPage() {
                     Email Address *
                   </label>
                   <div className="relative">
-                    <MailIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input
                       type="email"
                       id="email"

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Menu, X, ChevronDown, Shield, Users, Home, Smartphone, Star, CheckCircle, ArrowRight, Play, Award, Globe, Heart, Target, Zap, Users2, Building, Lock, Bell } from 'lucide-react'
+import { Menu, X, Shield, Users, Home, Smartphone, Star, CheckCircle, ArrowRight, Play, Award, Globe, Heart, Target, Zap, Users2, Building, Lock, Bell } from 'lucide-react'
 
 export default function AboutPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -381,7 +381,7 @@ export default function AboutPage() {
               <ul className="space-y-2 text-gray-400">
                 <li><a href="/about" className="hover:text-white">About</a></li>
                 <li><a href="#" className="hover:text-white">Careers</a></li>
-                <li><a href="#" className="hover:text-white">Contact</a></li>
+                <li><a href="/contact" className="hover:text-white">Contact</a></li>
                 <li><a href="#" className="hover:text-white">Blog</a></li>
               </ul>
             </div>
