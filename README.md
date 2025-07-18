@@ -156,9 +156,18 @@ NEXT_PUBLIC_GA_ID=your-google-analytics-id
 ```
 
 ### SEO & Analytics Setup
-1. **Google Analytics:** Add your GA4 measurement ID to environment variables
+1. **Google Analytics 4:** 
+   - Replace `G-XXXXXXXXXX` in `app/components/GoogleAnalytics.tsx` with your actual GA4 measurement ID
+   - Or set `NEXT_PUBLIC_GA_ID` environment variable in Vercel
 2. **Google Search Console:** Submit your sitemap at https://gatebell-website.vercel.app/sitemap.xml
 3. **Social Media:** Test Open Graph tags on Facebook, Twitter, and LinkedIn
+
+### Google Analytics 4 Integration
+The project includes comprehensive GA4 tracking:
+- **Page Views:** Automatically tracked on route changes
+- **Events:** Contact form submissions, CTA clicks
+- **Custom Hook:** `useGoogleAnalytics()` for custom event tracking
+- **TypeScript Support:** Full type safety for GA4 functions
 
 ### Performance Optimization
 - ✅ SEO optimized with meta tags

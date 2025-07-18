@@ -2,9 +2,11 @@
 
 import { useState } from 'react'
 import { Menu, X, Shield, Users, Home, Smartphone, Star, CheckCircle, ArrowRight, Play } from 'lucide-react'
+import { useGoogleAnalytics } from './hooks/useGoogleAnalytics'
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { trackEvent } = useGoogleAnalytics()
 
   return (
     <div className="min-h-screen bg-white">
@@ -83,11 +85,17 @@ export default function HomePage() {
                 GateBell provides comprehensive community management solutions with advanced security features, visitor management, and seamless communication tools.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors flex items-center justify-center">
+                <button 
+                  onClick={() => trackEvent('cta_click', 'hero', 'start_free_trial')}
+                  className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors flex items-center justify-center"
+                >
                   Start Free Trial
                   <ArrowRight className="ml-2" size={20} />
                 </button>
-                <button className="border border-gray-300 hover:border-primary-600 text-gray-700 hover:text-primary-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors flex items-center justify-center">
+                <button 
+                  onClick={() => trackEvent('cta_click', 'hero', 'watch_demo')}
+                  className="border border-gray-300 hover:border-primary-600 text-gray-700 hover:text-primary-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors flex items-center justify-center"
+                >
                   <Play className="mr-2" size={20} />
                   Watch Demo
                 </button>

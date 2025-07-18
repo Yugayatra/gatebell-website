@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Menu, X, Mail, Phone, MapPin, Clock, Send, Building, MessageSquare, User } from 'lucide-react'
+import { useGoogleAnalytics } from '../hooks/useGoogleAnalytics'
 
 export default function ContactPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -11,6 +12,7 @@ export default function ContactPage() {
     message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const { trackEvent } = useGoogleAnalytics()
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -24,12 +26,18 @@ export default function ContactPage() {
     e.preventDefault()
     setIsSubmitting(true)
     
+    // Track form submission event
+    trackEvent('form_submit', 'contact', 'contact_form')
+    
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000))
     
     // Reset form
     setFormData({ name: '', email: '', message: '' })
     setIsSubmitting(false)
+    
+    // Track successful submission
+    trackEvent('form_success', 'contact', 'contact_form_success')
     
     // Show success message (you can implement a toast notification here)
     alert('Thank you for your message! We\'ll get back to you soon.')
