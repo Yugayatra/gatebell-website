@@ -11,7 +11,7 @@ export default function PageViewTracker() {
 
   useEffect(() => {
     if (pathname) {
-      const url = pathname + searchParams.toString()
+      const url = pathname + (searchParams?.toString() || '')
       trackPageView(url)
     }
   }, [pathname, searchParams, trackPageView])
